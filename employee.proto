@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package example;
+
+option java_package = "com.imraklr.example.services";
+option java_multiple_files = true;
+
+service EmployeeService {
+    rpc getEmployee(EmployeeRequest) returns (EmployeeResponse);
+}
+
+message EmployeeRequest {
+    int32 id = 1; // int32 is a type used in protobuffs used to indicate an 
+    // integer value, id is the name of the field, a value of 1 is the
+    // 'tag' used to identify the field in the binary message when it gets 
+    // transported over the HTTP/2 protocol.
+}
+
+message EmployeeResponse {
+    int32 id = 1;
+    string name = 2;
+    string designation = 3; // identified as string type in protobuff
+}
